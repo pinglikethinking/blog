@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://pinglikethinking.github.io"></form>
@@ -94,17 +94,13 @@
 <p>person.prototype={<br>    name:”name”,<br>    job:”job”,<br>};<br>alert(person1.constructor===person);<br>alert(person1.job);<br>‘<br><em>constructor isn’t person,is Object</em><br>‘<br>function person(){}</p>
 <p>person.prototype={<br>    name:”name”,<br>    job:”job”,<br>};<br>var person1=new person();<br>alert(person1.constructor);<br>alert(person1.job);<br>alert(person.job);<br>‘</p>
 <hr>
-<p>##原因很简单，</p>
-<p>###1.每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。</p>
-<p>###2.当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的[Prototype]的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。</p>
-<p>###3.当实例化放在“对象字面量重写原型对象”后面时，实例的[prototype]的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。<br><strong>不知道这么解释通不通，欢迎知道的到时候给我纠正下。welcome!</strong></p>
+<h2 id="原因很简单，"><a href="#原因很简单，" class="headerlink" title="原因很简单，"></a>原因很简单，</h2><h3 id="1-每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。"><a href="#1-每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。" class="headerlink" title="1.每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。"></a>1.每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。</h3><h3 id="2-当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的-Prototype-的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。"><a href="#2-当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的-Prototype-的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。" class="headerlink" title="2.当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的[Prototype]的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。"></a>2.当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的[Prototype]的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。</h3><h3 id="3-当实例化放在“对象字面量重写原型对象”后面时，实例的-prototype-的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。"><a href="#3-当实例化放在“对象字面量重写原型对象”后面时，实例的-prototype-的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。" class="headerlink" title="3.当实例化放在“对象字面量重写原型对象”后面时，实例的[prototype]的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。"></a>3.当实例化放在“对象字面量重写原型对象”后面时，实例的[prototype]的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。</h3><p><strong>不知道这么解释通不通，欢迎知道的到时候给我纠正下。welcome!</strong></p>
 <hr>
-<p>##还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined!求解求解求解。</p>
-
+<h2 id="还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined-求解求解求解。"><a href="#还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined-求解求解求解。" class="headerlink" title="还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined!求解求解求解。"></a>还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined!求解求解求解。</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/14/prototype/" data-id="cin0aq8920002d4bzbxjepbim" class="article-share-link">Partager</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/14/prototype/" data-id="cin0avgmo0003dwbza6tr660j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -125,7 +121,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/log/">log</a></li></ul>
     </div>
@@ -135,7 +131,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HR/">HR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/first-technical-interview/">first technical interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/second-technical-interview/">second technical interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/third-technical-interview/">third technical interview</a></li></ul>
     </div>
@@ -145,7 +141,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/blog/tags/HR/" style="font-size: 10px;">HR</a> <a href="/blog/tags/first-technical-interview/" style="font-size: 10px;">first technical interview</a> <a href="/blog/tags/second-technical-interview/" style="font-size: 10px;">second technical interview</a> <a href="/blog/tags/third-technical-interview/" style="font-size: 10px;">third technical interview</a>
     </div>
@@ -164,7 +160,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -197,7 +193,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 ping<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
