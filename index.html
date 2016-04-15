@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-prototype" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-prototype2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/14/prototype/" class="article-date">
-  <time datetime="2016-04-14T11:20:00.455Z" itemprop="datePublished">2016-04-14</time>
+    <a href="/blog/2016/04/15/prototype2/" class="article-date">
+  <time datetime="2016-04-15T01:24:01.524Z" itemprop="datePublished">2016-04-15</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/04/14/prototype/">对象字面量重写整个原型对象</a>
+      <a class="article-title" href="/blog/2016/04/15/prototype2/">solution to inheritation&#39;s problem</a>
     </h1>
   
 
@@ -90,16 +90,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="使用对象字面量重写整个原型对象，原型对象的constructor是什么取决于代码的先后顺序-但实例不能用字面量里面的属性！"><a href="#使用对象字面量重写整个原型对象，原型对象的constructor是什么取决于代码的先后顺序-但实例不能用字面量里面的属性！" class="headerlink" title="使用对象字面量重写整个原型对象，原型对象的constructor是什么取决于代码的先后顺序,但实例不能用字面量里面的属性！"></a>使用对象字面量重写整个原型对象，原型对象的constructor是什么取决于代码的先后顺序,但实例不能用字面量里面的属性！</h3><p><em>constructor is person</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> person();</span><br><span class="line"></span><br><span class="line">person.prototype=&#123;</span><br><span class="line">    name:<span class="string">"name"</span>,</span><br><span class="line">    job:<span class="string">"job"</span>,</span><br><span class="line">&#125;;</span><br><span class="line">alert(person1.constructor===person);</span><br><span class="line">alert(person1.job);</span><br></pre></td></tr></table></figure></p>
-<p><em>constructor isn’t person,is Object</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">person.prototype=&#123;</span><br><span class="line">    name:<span class="string">"name"</span>,</span><br><span class="line">    job:<span class="string">"job"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> person();</span><br><span class="line">alert(person1.constructor);</span><br><span class="line">alert(person1.job);</span><br><span class="line">alert(person.job);</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="原因很简单，"><a href="#原因很简单，" class="headerlink" title="原因很简单，"></a>原因很简单，</h2><h3 id="1-每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。"><a href="#1-每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。" class="headerlink" title="1.每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。"></a>1.每创建一个构造函数的时候，都会创建一个原型对象，并且原型对象的constructor都是指向构造函数的。</h3><h3 id="2-当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的-Prototype-的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。"><a href="#2-当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的-Prototype-的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。" class="headerlink" title="2.当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的[Prototype]的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。"></a>2.当实例化构造函数放在“对象字面量重写原型对象”之前时，实例的[Prototype]的constructor还是指向构造函数的；重写之后，可能变了，但我们无法知道。</h3><h3 id="3-当实例化放在“对象字面量重写原型对象”后面时，实例的-prototype-的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。"><a href="#3-当实例化放在“对象字面量重写原型对象”后面时，实例的-prototype-的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。" class="headerlink" title="3.当实例化放在“对象字面量重写原型对象”后面时，实例的[prototype]的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。"></a>3.当实例化放在“对象字面量重写原型对象”后面时，实例的[prototype]的constructor就会指向object了；一旦重写，现有原型指向构造函数了，但原来的原型就指向object了，而实例化的实例是指向原来的原型的。</h3><p><strong>不知道这么解释通不通，欢迎知道的到时候给我纠正下。welcome!</strong></p>
-<hr>
-<h2 id="还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined-求解求解求解。"><a href="#还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined-求解求解求解。" class="headerlink" title="还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined!求解求解求解。"></a>还有个疑问，那个构造函数指向现有原型了，但访问它的job，该属性为undefined!求解求解求解。</h2>
+        <h1 id="原型模式具有共享的本性，构造模式没有共享的本性可以传参"><a href="#原型模式具有共享的本性，构造模式没有共享的本性可以传参" class="headerlink" title="原型模式具有共享的本性，构造模式没有共享的本性可以传参"></a>原型模式具有共享的本性，构造模式没有共享的本性可以传参</h1><p><em>方法共享，属性不共享</em><br><strong>实现方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.job=job;</span><br><span class="line">    <span class="keyword">this</span>.friends=[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</span><br><span class="line">&#125;</span><br><span class="line">person.prototype=&#123;</span><br><span class="line">    <span class="keyword">constructor</span>:person,</span><br><span class="line">    sayName:function()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> <span class="keyword">var</span> person1=<span class="keyword">new</span> person(<span class="string">"nichals"</span>,<span class="string">"20"</span>,<span class="string">"software engineer"</span>);</span><br><span class="line"> <span class="keyword">var</span> person2=<span class="keyword">new</span> person(<span class="string">"ping"</span>,<span class="string">"21"</span>,<span class="string">"engineer"</span>);</span><br><span class="line"> person1.friends.push(<span class="string">"d"</span>);<span class="comment">/*通过实例1对数组修改*/</span></span><br><span class="line"> <span class="built_in">console</span>.log(person1.name);</span><br><span class="line"> person1.sayName();</span><br><span class="line"> <span class="built_in">console</span>.log(person2.name);</span><br><span class="line"> <span class="built_in">console</span>.log(person2.friends);<span class="comment">/*观察实例2的数组是否变化*/</span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/14/prototype/" data-id="cin0cd5p70004k4bzccrsr6dk" class="article-share-link">Partager</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/15/prototype2/" data-id="cin1b7eq30005y4bznpjiast7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -112,7 +108,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -162,6 +158,10 @@
     <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2016/04/15/prototype2/">solution to inheritation&#39;s problem</a>
+          </li>
         
           <li>
             <a href="/blog/2016/04/14/prototype/">对象字面量重写整个原型对象</a>

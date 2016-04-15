@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mot-clé: HR | thinking</title>
+  <title>solution to inheritation&#39;s problem | thinking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="thinking everyday everyminute everysecond everymillisecond">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thinking">
-<meta property="og:url" content="http://pinglikethinking.github.io/tags/HR/index.html">
+  <meta name="description" content="原型模式具有共享的本性，构造模式没有共享的本性可以传参方法共享，属性不共享实现方法12345678910111213141516171819function person(name,age,job)&amp;#123;    this.name=name;    this.age=age;    this.job=job;    this.friends=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];&amp;#125;perso">
+<meta property="og:type" content="article">
+<meta property="og:title" content="solution to inheritation's problem">
+<meta property="og:url" content="http://pinglikethinking.github.io/2016/04/15/prototype2/index.html">
 <meta property="og:site_name" content="thinking">
-<meta property="og:description" content="thinking everyday everyminute everysecond everymillisecond">
+<meta property="og:description" content="原型模式具有共享的本性，构造模式没有共享的本性可以传参方法共享，属性不共享实现方法12345678910111213141516171819function person(name,age,job)&amp;#123;    this.name=name;    this.age=age;    this.job=job;    this.friends=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];&amp;#125;perso">
+<meta property="og:updated_time" content="2016-04-15T04:43:26.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thinking">
-<meta name="twitter:description" content="thinking everyday everyminute everysecond everymillisecond">
+<meta name="twitter:title" content="solution to inheritation's problem">
+<meta name="twitter:description" content="原型模式具有共享的本性，构造模式没有共享的本性可以传参方法共享，属性不共享实现方法12345678910111213141516171819function person(name,age,job)&amp;#123;    this.name=name;    this.age=age;    this.job=job;    this.friends=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];&amp;#125;perso">
   
     <link rel="alternate" href="/atom.xml" title="thinking" type="application/atom+xml">
   
@@ -66,39 +67,52 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/04/13/interview/" class="archive-article-date">
-  <time datetime="2016-04-12T16:00:00.000Z" itemprop="datePublished">Apr 13</time>
+        <section id="main"><article id="post-prototype2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/15/prototype2/" class="article-date">
+  <time datetime="2016-04-15T01:24:01.524Z" itemprop="datePublished">2016-04-15</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/04/13/interview/">interview to ****</a>
+    <h1 class="article-title" itemprop="name">
+      solution to inheritation&#39;s problem
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="原型模式具有共享的本性，构造模式没有共享的本性可以传参"><a href="#原型模式具有共享的本性，构造模式没有共享的本性可以传参" class="headerlink" title="原型模式具有共享的本性，构造模式没有共享的本性可以传参"></a>原型模式具有共享的本性，构造模式没有共享的本性可以传参</h1><p><em>方法共享，属性不共享</em><br><strong>实现方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.job=job;</span><br><span class="line">    <span class="keyword">this</span>.friends=[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</span><br><span class="line">&#125;</span><br><span class="line">person.prototype=&#123;</span><br><span class="line">    <span class="keyword">constructor</span>:person,</span><br><span class="line">    sayName:function()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> <span class="keyword">var</span> person1=<span class="keyword">new</span> person(<span class="string">"nichals"</span>,<span class="string">"20"</span>,<span class="string">"software engineer"</span>);</span><br><span class="line"> <span class="keyword">var</span> person2=<span class="keyword">new</span> person(<span class="string">"ping"</span>,<span class="string">"21"</span>,<span class="string">"engineer"</span>);</span><br><span class="line"> person1.friends.push(<span class="string">"d"</span>);<span class="comment">/*通过实例1对数组修改*/</span></span><br><span class="line"> <span class="built_in">console</span>.log(person1.name);</span><br><span class="line"> person1.sayName();</span><br><span class="line"> <span class="built_in">console</span>.log(person2.name);</span><br><span class="line"> <span class="built_in">console</span>.log(person2.friends);<span class="comment">/*观察实例2的数组是否变化*/</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/15/prototype2/" data-id="cin1b7eq30005y4bznpjiast7" class="article-share-link">Partager</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/04/14/prototype/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">对象字面量重写整个原型对象</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
