@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>thinking</title>
+  <title>对象字面量重写整个原型对象 | thinking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="thinking everyday everyminute everysecond everymillisecond">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thinking">
-<meta property="og:url" content="http://pinglikethinking.github.io/page/2/index.html">
+  <meta name="description" content="使用对象字面量重写整个原型对象，实例的constructor是什么取决于代码的先后顺序constructor is person123456789function person()&amp;#123;&amp;#125;var person1=new person();,person.prototype=&amp;#123;    name:&quot;name&quot;,    job:&quot;job&quot;,&amp;#125;;alert(person">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象字面量重写整个原型对象">
+<meta property="og:url" content="http://pinglikethinking.github.io/2016/04/15/prototype&prototype/index.html">
 <meta property="og:site_name" content="thinking">
-<meta property="og:description" content="thinking everyday everyminute everysecond everymillisecond">
+<meta property="og:description" content="使用对象字面量重写整个原型对象，实例的constructor是什么取决于代码的先后顺序constructor is person123456789function person()&amp;#123;&amp;#125;var person1=new person();,person.prototype=&amp;#123;    name:&quot;name&quot;,    job:&quot;job&quot;,&amp;#125;;alert(person">
+<meta property="og:updated_time" content="2016-04-15T07:35:16.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thinking">
-<meta name="twitter:description" content="thinking everyday everyminute everysecond everymillisecond">
+<meta name="twitter:title" content="对象字面量重写整个原型对象">
+<meta name="twitter:description" content="使用对象字面量重写整个原型对象，实例的constructor是什么取决于代码的先后顺序constructor is person123456789function person()&amp;#123;&amp;#125;var person1=new person();,person.prototype=&amp;#123;    name:&quot;name&quot;,    job:&quot;job&quot;,&amp;#125;;alert(person">
   
     <link rel="alternate" href="/atom.xml" title="thinking" type="application/atom+xml">
   
@@ -66,16 +67,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-constructor&amp;prototype&amp;__proto__" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-prototype&amp;prototype" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/14/constructor&prototype&__proto__/" class="article-date">
-  <time datetime="2016-04-14T11:20:00.455Z" itemprop="datePublished">2016-04-14</time>
+    <a href="/blog/2016/04/15/prototype&prototype/" class="article-date">
+  <time datetime="2016-04-15T07:26:28.189Z" itemprop="datePublished">2016-04-15</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/constructor-prototype/">constructor&prototype</a>
+    <a class="article-category-link" href="/blog/categories/constructor-prototype-proto/">constructor&prototype&__proto__</a>
   </div>
 
   </div>
@@ -85,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/04/14/constructor&prototype&__proto__/">对象字面量重写整个原型对象</a>
+    <h1 class="article-title" itemprop="name">
+      对象字面量重写整个原型对象
     </h1>
   
 
@@ -114,25 +113,32 @@
 <hr>
 <p><strong>constructor</strong><br><strong>默认创建的原型对象中才constructor:person</strong><br><em>即person.prototype.age=20;这种叫默认创建的</em><br><strong>使用对象字面量重写原型对象以及继承情况下新建的原型对象</strong>默认情况下<br><strong>constructor:function Object(){[native code]}</strong><br>除非新建原型对象时，定义了constructor:person</p>
 <hr>
+<p><strong><strong>proto</strong></strong><br>任何一个对象在创建之后必有的一个私有属性<strong>proto</strong>，也是原型链的基础。<br>function person()={}<br>var person1=new person();<br>此时person1.<strong>proto</strong>===person.prototype<br>person.<strong>proto</strong>===Object.prototype<br><strong>可以将prototype当作指针，constructor&amp;prototype构成了双向链表，这两个属性值一般情况下要定义</strong><br>虽然未定义实例的prototype值，但自带的<strong>proto</strong>指向了原型对象，继承了原型对象。以上问题也都得到解答了。</p>
+<hr>
 <h1 id="以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西"><a href="#以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西" class="headerlink" title="以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西"></a>以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/14/constructor&prototype&__proto__/" data-id="cin1ehb8f0000usbzvzg13fxu" class="article-share-link">Share</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/15/prototype&prototype/" data-id="cin1ehbal000fusbzf2ljujnk" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/04/14/constructor&prototype&__proto__/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">对象字面量重写整个原型对象</div>
+    </a>
+  
+</nav>
 
   
+</article>
 
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/blog/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/3/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">
