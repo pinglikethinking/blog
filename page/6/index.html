@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>solution to prototype_model&#39;s problem | thinking</title>
+  <title>thinking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原型模式具有共享的本性，构造模式没有共享的本性可以传参方法共享，属性不共享实现方法12345678910111213141516171819function person(name,age,job)&amp;#123;    this.name=name;    this.age=age;    this.job=job;    this.friends=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];&amp;#125;perso">
-<meta property="og:type" content="article">
-<meta property="og:title" content="solution to prototype_model's problem">
-<meta property="og:url" content="http://pinglikethinking.github.io/2016/04/14/prototype/index.html">
+  <meta name="description" content="thinking everyday everyminute everysecond everymillisecond">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thinking">
+<meta property="og:url" content="http://pinglikethinking.github.io/page/6/index.html">
 <meta property="og:site_name" content="thinking">
-<meta property="og:description" content="原型模式具有共享的本性，构造模式没有共享的本性可以传参方法共享，属性不共享实现方法12345678910111213141516171819function person(name,age,job)&amp;#123;    this.name=name;    this.age=age;    this.job=job;    this.friends=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];&amp;#125;perso">
-<meta property="og:updated_time" content="2016-04-15T07:27:33.442Z">
+<meta property="og:description" content="thinking everyday everyminute everysecond everymillisecond">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="solution to prototype_model's problem">
-<meta name="twitter:description" content="原型模式具有共享的本性，构造模式没有共享的本性可以传参方法共享，属性不共享实现方法12345678910111213141516171819function person(name,age,job)&amp;#123;    this.name=name;    this.age=age;    this.job=job;    this.friends=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];&amp;#125;perso">
+<meta name="twitter:title" content="thinking">
+<meta name="twitter:description" content="thinking everyday everyminute everysecond everymillisecond">
   
     <link rel="alternate" href="/atom.xml" title="thinking" type="application/atom+xml">
   
@@ -67,16 +66,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-prototype" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/14/prototype/" class="article-date">
-  <time datetime="2016-04-14T11:20:00.455Z" itemprop="datePublished">2016-04-14</time>
+    <a href="/blog/2016/04/12/hello-world/" class="article-date">
+  <time datetime="2016-04-12T13:41:21.639Z" itemprop="datePublished">2016-04-12</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/prototype/">prototype</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -84,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      solution to prototype_model&#39;s problem
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/04/12/hello-world/">Hello World</a>
     </h1>
   
 
@@ -93,40 +90,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="原型模式具有共享的本性，构造模式没有共享的本性可以传参"><a href="#原型模式具有共享的本性，构造模式没有共享的本性可以传参" class="headerlink" title="原型模式具有共享的本性，构造模式没有共享的本性可以传参"></a>原型模式具有共享的本性，构造模式没有共享的本性可以传参</h1><p><em>方法共享，属性不共享</em><br><strong>实现方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.job=job;</span><br><span class="line">    <span class="keyword">this</span>.friends=[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</span><br><span class="line">&#125;</span><br><span class="line">person.prototype=&#123;</span><br><span class="line">    <span class="keyword">constructor</span>:person,</span><br><span class="line">    sayName:function()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> <span class="keyword">var</span> person1=<span class="keyword">new</span> person(<span class="string">"nichals"</span>,<span class="string">"20"</span>,<span class="string">"software engineer"</span>);</span><br><span class="line"> <span class="keyword">var</span> person2=<span class="keyword">new</span> person(<span class="string">"ping"</span>,<span class="string">"21"</span>,<span class="string">"engineer"</span>);</span><br><span class="line"> person1.friends.push(<span class="string">"d"</span>);<span class="comment">/*通过实例1对数组修改*/</span></span><br><span class="line"> <span class="built_in">console</span>.log(person1.name);</span><br><span class="line"> person1.sayName();</span><br><span class="line"> <span class="built_in">console</span>.log(person2.name);</span><br><span class="line"> <span class="built_in">console</span>.log(person2.friends);<span class="comment">/*观察实例2的数组是否变化*/</span></span><br></pre></td></tr></table></figure></p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/14/prototype/" data-id="cinlwpo9300077wbzt2r0dw9u" class="article-share-link">Share</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/12/hello-world/" data-id="cinlwpo8w00057wbzyzjavsvv" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/blog/2016/04/15/prototype&prototype/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          对象字面量重写整个原型对象
-        
-      </div>
-    </a>
-  
-  
-    <a href="/blog/2016/04/14/constructor&prototype&__proto__/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">对象字面量重写整个原型对象</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/blog/page/5/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
 </section>
         
           <aside id="sidebar">
