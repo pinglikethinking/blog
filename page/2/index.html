@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://pinglikethinking.github.io"></form>
@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-offsetBug" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-parseFloat" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/29/offsetBug/" class="article-date">
-  <time datetime="2016-04-29T15:29:45.564Z" itemprop="datePublished">2016-04-29</time>
+    <a href="/blog/2016/04/30/parseFloat/" class="article-date">
+  <time datetime="2016-04-30T08:11:15.208Z" itemprop="datePublished">2016-04-30</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/04/29/offsetBug/">There is a Bug in offset</a>
+      <a class="article-title" href="/blog/2016/04/30/parseFloat/">parseFloat problem</a>
     </h1>
   
 
@@ -90,17 +90,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="盒子模型引起的疑问"><a href="#盒子模型引起的疑问" class="headerlink" title="盒子模型引起的疑问"></a>盒子模型引起的疑问</h1><p>style下的width是内容的宽度，那么你知不知道offsetWidth获取的是盒子整个的宽度，包括2*(padding + margin + border) + width，如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">      #div1&#123;</span><br><span class="line">        width:200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color:#DBDBDB;</span><br><span class="line">        border:2px solid #000;</span><br><span class="line">      &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="keyword">var</span> oDiv=<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(oDiv.offsetWidth);<span class="comment">//204</span></span><br><span class="line">        <span class="built_in">console</span>.log(oDiv.style.width);<span class="comment">//空白...</span></span><br><span class="line">        <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            startMove();</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                oDiv.style.width=oDiv.offsetWidth<span class="number">-1</span>+<span class="string">"px"</span>;<span class="comment">//201 202...</span></span><br><span class="line">                &#125;,<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(getComputedStyle(oDiv,<span class="string">":after"</span>).content);</span><br><span class="line">        <span class="built_in">console</span>.log(getComputedStyle(oDiv,<span class="string">":hover"</span>).width);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="原来offset引起的"><a href="#原来offset引起的" class="headerlink" title="原来offset引起的"></a>原来offset引起的</h1><p>以为是缩小的结果，结果是增大，这是怎么回事呢，观察上面的输出得出offset造成的结果<br>offset获取的是大盒子的值，style设置的是内容的width，结果就是在增大</p>
-<h1 id="学会用getComputedStyle-IE支持currentStyle独有"><a href="#学会用getComputedStyle-IE支持currentStyle独有" class="headerlink" title="学会用getComputedStyle,IE支持currentStyle独有"></a>学会用getComputedStyle,IE支持currentStyle独有</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">      #div1&#123;</span><br><span class="line">        width:200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color:#DBDBDB;</span><br><span class="line">        border:2px solid #000;</span><br><span class="line">      &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="keyword">var</span> oDiv=<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line">        <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            startMove();</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                oDiv.style.width=<span class="built_in">parseInt</span>(getStyle(oDiv,<span class="string">"width"</span>))<span class="number">-1</span>+<span class="string">"px"</span>;</span><br><span class="line">                &#125;,<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">obj,attr</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj.currentStyle)&#123;</span><br><span class="line">                <span class="keyword">return</span> obj.currentStyle[atr];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> getComputedStyle(obj,<span class="literal">null</span>)[atr];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(getComputedStyle(oDiv,<span class="string">":after"</span>).content);</span><br><span class="line">        <span class="built_in">console</span>.log(getComputedStyle(oDiv,<span class="string">":hover"</span>).width);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="不过还是存在一个问题getComputedStyle-element-伪类-attr当为hover时获取不到hover的属性，待解决……"><a href="#不过还是存在一个问题getComputedStyle-element-伪类-attr当为hover时获取不到hover的属性，待解决……" class="headerlink" title="不过还是存在一个问题getComputedStyle(element,伪类).attr当为hover时获取不到hover的属性，待解决……"></a>不过还是存在一个问题getComputedStyle(element,伪类).attr当为hover时获取不到hover的属性，待解决……</h1>
+        <h1 id="today-I-am-faced-with-a-problem"><a href="#today-I-am-faced-with-a-problem" class="headerlink" title="today I am faced with a problem"></a>today I am faced with a problem</h1><p>Since rejected by aliyun,I have been so that sad that I have been having no energy to do sth.After the whole buffer,I was so happy but what’s waitting for me is rejection.In fact, I had no offers and no reparation before.Now, I have tried so many,but there is no any application.lagou shixiceng balabalabala…<br>However,everything must continue to be done!So I shut up,let’s talk about “parseFloat”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num=<span class="built_in">parseFloat</span>(<span class="number">0.07</span>)*<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num);<span class="comment">//7.000000000000001</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">//7</span></span><br></pre></td></tr></table></figure></p>
+<p>Owning to this,”Math.round()” is a must to “parseFloat()”.<br>This problem is born from <a href="https://github.com/pinglikethinking/components/blob/master/move.js" target="_blank" rel="external">style change</a></p>
+<h3 id="MY-DREAM-IS-to-be-a-WEB-ARCHITECT"><a href="#MY-DREAM-IS-to-be-a-WEB-ARCHITECT" class="headerlink" title="MY DREAM IS to be a WEB ARCHITECT"></a>MY DREAM IS to be a WEB ARCHITECT</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/29/offsetBug/" data-id="cinn2ykdz0006hgbzbk7vl3e8" class="article-share-link">Partager</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/30/parseFloat/" data-id="cinu40no8000dgkbzl3e5kxjj" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li></ul>
 
     </footer>
   </div>
@@ -112,7 +111,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/blog/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" href="/blog/page/3/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/blog/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -123,9 +122,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflow/">reflow</a></li></ul>
     </div>
   </div>
 
@@ -133,9 +132,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a>
+      <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/reflow/" style="font-size: 10px;">reflow</a>
     </div>
   </div>
 
@@ -144,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li></ul>
     </div>
   </div>
 
@@ -152,9 +151,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2016/05/05/reflow/">reflow and repaint</a>
+          </li>
         
           <li>
             <a href="/blog/2016/04/30/parseFloat/">parseFloat problem</a>
@@ -172,10 +175,6 @@
             <a href="/blog/2016/04/14/constructor&prototype&__proto__/">对象字面量重写整个原型对象</a>
           </li>
         
-          <li>
-            <a href="/blog/2016/04/14/prototype/">solution to prototype_model&#39;s problem</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -189,7 +188,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 ping<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

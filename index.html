@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://pinglikethinking.github.io"></form>
@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-parseFloat" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-reflow" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/30/parseFloat/" class="article-date">
-  <time datetime="2016-04-30T08:11:15.208Z" itemprop="datePublished">2016-04-30</time>
+    <a href="/blog/2016/05/05/reflow/" class="article-date">
+  <time datetime="2016-05-05T09:34:18.108Z" itemprop="datePublished">2016-05-05</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/04/30/parseFloat/">parseFloat problem</a>
+      <a class="article-title" href="/blog/2016/05/05/reflow/">reflow and repaint</a>
     </h1>
   
 
@@ -90,16 +90,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="today-I-am-faced-with-a-problem"><a href="#today-I-am-faced-with-a-problem" class="headerlink" title="today I am faced with a problem"></a>today I am faced with a problem</h1><p>Since rejected by aliyun,I have been so that sad that I have been having no energy to do sth.After the whole buffer,I was so happy but what’s waitting for me is rejection.In fact, I had no offers and no reparation before.Now, I have tried so many,but there is no any application.lagou shixiceng balabalabala…<br>However,everything must continue to be done!So I shut up,let’s talk about “parseFloat”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num=<span class="built_in">parseFloat</span>(<span class="number">0.07</span>)*<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num);<span class="comment">//7.000000000000001</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">//7</span></span><br></pre></td></tr></table></figure></p>
-<p>Owning to this,”Math.round()” is a must to “parseFloat()”.<br>This problem is born from <a href="https://github.com/pinglikethinking/components/blob/master/move.js" target="_blank" rel="external">style change</a></p>
-<h3 id="MY-DREAM-IS-to-be-a-WEB-ARCHITECT"><a href="#MY-DREAM-IS-to-be-a-WEB-ARCHITECT" class="headerlink" title="MY DREAM IS to be a WEB ARCHITECT"></a>MY DREAM IS to be a WEB ARCHITECT</h3>
+        <h1 id="study-reflow-onceagain"><a href="#study-reflow-onceagain" class="headerlink" title="study reflow onceagain"></a>study reflow onceagain</h1><p>Today I met with a problem about dynamic adding pictures with js.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pic"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/&#123;&#123;index&#125;&#125;.jpg"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>I want to add my pictures in ““,so many that I can’t make many “div”s.I think of JS.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1get template</span></span><br><span class="line">    <span class="keyword">var</span> _img=$(<span class="string">"#main"</span>).innerHTML</span><br><span class="line">              .replace(<span class="regexp">/^\s*/</span>,<span class="string">""</span>)</span><br><span class="line">              .replace(<span class="regexp">/\s*$/</span>,<span class="string">""</span>);</span><br><span class="line">    <span class="comment">//2 var</span></span><br><span class="line">    <span class="keyword">var</span> out_img=[];</span><br><span class="line">    <span class="comment">//3add data</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data)&#123;</span><br><span class="line">        <span class="keyword">var</span> html_img=_img</span><br><span class="line">                .replace(<span class="regexp">/&#123;&#123;index&#125;&#125;/g</span>,data[i].img);</span><br><span class="line">        out_img.push(html_img);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4reflow</span></span><br><span class="line">    $(<span class="string">"#main"</span>).innerHTML+=out_img.join(<span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="we-all-know-that-browser-flows-the-““-in-html-before-meeting-with-JS-So-our-imgs-package-must-have-jpg"><a href="#we-all-know-that-browser-flows-the-““-in-html-before-meeting-with-JS-So-our-imgs-package-must-have-jpg" class="headerlink" title="we all know that browser flows the ““ in html before meeting with JS.So our imgs package must have .jpg"></a>we all know that browser flows the ““ in html before meeting with JS.So our imgs package must have .jpg</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/30/parseFloat/" data-id="cinn2ykee0008hgbz5m37her6" class="article-share-link">Partager</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/05/05/reflow/" data-id="cinu40no0000agkbzpeazybbd" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/reflow/">reflow</a></li></ul>
 
     </footer>
   </div>
@@ -111,7 +112,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" href="/blog/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -122,9 +123,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflow/">reflow</a></li></ul>
     </div>
   </div>
 
@@ -132,9 +133,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a>
+      <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/reflow/" style="font-size: 10px;">reflow</a>
     </div>
   </div>
 
@@ -143,7 +144,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li></ul>
     </div>
   </div>
 
@@ -151,9 +152,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2016/05/05/reflow/">reflow and repaint</a>
+          </li>
         
           <li>
             <a href="/blog/2016/04/30/parseFloat/">parseFloat problem</a>
@@ -171,10 +176,6 @@
             <a href="/blog/2016/04/14/constructor&prototype&__proto__/">对象字面量重写整个原型对象</a>
           </li>
         
-          <li>
-            <a href="/blog/2016/04/14/prototype/">solution to prototype_model&#39;s problem</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -188,7 +189,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 ping<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

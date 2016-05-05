@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://pinglikethinking.github.io"></form>
@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-constructor&amp;prototype&amp;__proto__" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-prototype&amp;prototype" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/14/constructor&prototype&__proto__/" class="article-date">
-  <time datetime="2016-04-14T11:20:00.455Z" itemprop="datePublished">2016-04-14</time>
+    <a href="/blog/2016/04/15/prototype&prototype/" class="article-date">
+  <time datetime="2016-04-15T07:26:28.189Z" itemprop="datePublished">2016-04-15</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/04/14/constructor&prototype&__proto__/">对象字面量重写整个原型对象</a>
+      <a class="article-title" href="/blog/2016/04/15/prototype&prototype/">对象字面量重写整个原型对象</a>
     </h1>
   
 
@@ -110,14 +110,16 @@
 <hr>
 <p><strong>constructor</strong><br><strong>默认创建的原型对象中才constructor:person</strong><br><em>即person.prototype.age=20;这种叫默认创建的</em><br><strong>使用对象字面量重写原型对象以及继承情况下新建的原型对象</strong>默认情况下<br><strong>constructor:function Object(){[native code]}</strong><br>除非新建原型对象时，定义了constructor:person</p>
 <hr>
+<p><strong><strong>proto</strong></strong><br>任何一个对象在创建之后必有的一个私有属性<strong>proto</strong>，也是原型链的基础。<br>function person()={}<br>var person1=new person();<br>此时person1.<strong>proto</strong>===person.prototype<br>person.<strong>proto</strong>===Object.prototype<br><strong>可以将prototype当作指针，constructor&amp;prototype构成了双向链表，这两个属性值一般情况下要定义</strong><br>虽然未定义实例的prototype值，但自带的<strong>proto</strong>指向了原型对象，继承了原型对象。以上问题也都得到解答了。</p>
+<hr>
 <h1 id="以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西"><a href="#以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西" class="headerlink" title="以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西"></a>以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/04/14/constructor&prototype&__proto__/" data-id="cinn2ykcx0000hgbznbwru5wj" class="article-share-link">Partager</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/04/15/prototype&prototype/" data-id="cinu40nmh0007gkbzj27fnm7i" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li></ul>
 
     </footer>
   </div>
@@ -129,7 +131,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" href="/blog/page/5/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/5/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -140,9 +142,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflow/">reflow</a></li></ul>
     </div>
   </div>
 
@@ -150,9 +152,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a>
+      <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/reflow/" style="font-size: 10px;">reflow</a>
     </div>
   </div>
 
@@ -161,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li></ul>
     </div>
   </div>
 
@@ -169,9 +171,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2016/05/05/reflow/">reflow and repaint</a>
+          </li>
         
           <li>
             <a href="/blog/2016/04/30/parseFloat/">parseFloat problem</a>
@@ -189,10 +195,6 @@
             <a href="/blog/2016/04/14/constructor&prototype&__proto__/">对象字面量重写整个原型对象</a>
           </li>
         
-          <li>
-            <a href="/blog/2016/04/14/prototype/">solution to prototype_model&#39;s problem</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -206,7 +208,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 ping<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
