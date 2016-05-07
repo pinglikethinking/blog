@@ -90,7 +90,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JS闭包、闭包优缺点、this指向、内存泄漏"><a href="#JS闭包、闭包优缺点、this指向、内存泄漏" class="headerlink" title="JS闭包、闭包优缺点、this指向、内存泄漏"></a>JS闭包、闭包优缺点、this指向、内存泄漏</h1><p><strong>前奏</strong><br>昨晚和百度高级前端工程师聊地好hi，我被“虐”的好惨，完全不懂他给我的上下文，我的回答也许都不在作用域内，比如下面系列问题：<br>1.img100-1000性能解决问题—瀑布流在不知道图片尺寸的情况下怎么做到每列高度相当：这是我项目里做的啊，当时误以为瀑布流下仍然存在的那点高度差怎么解决，以为要设置齐齐的，其实问的是我怎么做到的高度相当，我项目就是这样做的~列数定即宽度定，高度自适应，相对父容器绝对定位，每放一张图片都计算一下此前哪一列的高度小就置于哪一列下。<br>2.怎么判断画布中的一个圆被鼠标点击了：其实这个问题何尝不是我项目里用到的，当时听成”页面有个圆，怎么判断鼠标点击了它”，我幻想它是什么呢？是a标签的block表示的呢就active?是一个普通的div取完box-radius得到的圆形就mouseover？还是button?其实强调了画布不就很简单了嘛。点击画布绑定一个事件判断点击的坐标，与圆心坐标比较，就是项目里的落子事件实现反过来啊。<br>3.JS继承，闭包，闭包的优缺点，this指向情况产生什么问题怎么解决，内存泄漏与内存溢出————这就是我本文要细致讲讲的<br>4.盒子模型—IE下什么不同—ie的其他兼容性问题—css3新增的—html5新增的<br>5.node做了些什么—-模板引擎的原理是什么，应该问的就是<a href="https://segmentfault.com/a/1190000000426283" target="_blank" rel="external">JS引擎原理</a><br>6.http状态码301与302区别<br>7.跨域解决方案—单向还是双向<a href="http://blog.csdn.net/kongjiea/article/details/44201021" target="_blank" rel="external"></a><br>回头想想被问的就是自己项目里的实现方法，一些系统的基础知识。都没处于上下文环境中，状态没把握好啊。<br>好，回归正题，毕竟被系列问了继承、闭包、this、内存泄漏。</p>
+        <h1 id="JS闭包、闭包优缺点、this指向、内存泄漏"><a href="#JS闭包、闭包优缺点、this指向、内存泄漏" class="headerlink" title="JS闭包、闭包优缺点、this指向、内存泄漏"></a>JS闭包、闭包优缺点、this指向、内存泄漏</h1><p><strong>前奏</strong><br>昨晚和百度高级前端工程师聊地好hi，我被“虐”的好惨，完全不懂他给我的上下文，我的回答也许都不在作用域内，比如下面系列问题：<br>1.img100-1000性能解决问题—瀑布流在不知道图片尺寸的情况下怎么做到每列高度相当：这是我项目里做的啊，当时误以为瀑布流下仍然存在的那点高度差怎么解决，以为要设置齐齐的，其实问的是我怎么做到的高度相当，我项目就是这样做的~列数定即宽度定，高度自适应，相对父容器绝对定位，每放一张图片都计算一下此前哪一列的高度小就置于哪一列下。<br>2.怎么判断画布中的一个圆被鼠标点击了：其实这个问题何尝不是我项目里用到的，当时听成”页面有个圆，怎么判断鼠标点击了它”，我幻想它是什么呢？是a标签的block表示的呢就active?是一个普通的div取完box-radius得到的圆形就mouseover？还是button?其实强调了画布不就很简单了嘛。点击画布绑定一个事件判断点击的坐标，与圆心坐标比较，就是项目里的落子事件实现反过来啊。<br>3.JS继承，闭包，闭包的优缺点，this指向情况产生什么问题怎么解决，内存泄漏与内存溢出————这就是我本文要细致讲讲的<br>4.盒子模型—IE下什么不同—ie的其他兼容性问题—css3新增的—html5新增的<br>5.node做了些什么—-模板引擎的原理是什么，应该问的就是<a href="https://segmentfault.com/a/1190000000426283" target="_blank" rel="external">JS引擎原理</a><br>6.http状态码301与302区别<br>7.<a href="http://blog.csdn.net/kongjiea/article/details/44201021" target="_blank" rel="external">跨域解决方案</a>—单向还是双向<br>回头想想被问的就是自己项目里的实现方法，一些系统的基础知识。都没处于上下文环境中，状态没把握好啊。<br>好，回归正题，毕竟被系列问了继承、闭包、this、内存泄漏。</p>
 <hr>
 <h5 id="闭包概念"><a href="#闭包概念" class="headerlink" title="闭包概念"></a>闭包概念</h5><ul>
 <li>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式就是在一个函数的内部创建另一个函数。《JS高级程序设计第三版》P178</li>
@@ -145,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/05/06/JSprogression/" data-id="cinx12zin00005wbzr1j1v9h9" class="article-share-link">Share</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/05/06/JSprogression/" data-id="cinx16tcg00007obz4eizelat" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JS-progress/">JS progress</a></li></ul>
