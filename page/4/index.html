@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-3D_css3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2D_canvas" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/05/11/3D_css3/" class="article-date">
-  <time datetime="2016-05-10T16:00:00.000Z" itemprop="datePublished">2016-05-11</time>
+    <a href="/blog/2016/05/13/2D_canvas/" class="article-date">
+  <time datetime="2016-05-12T16:00:00.000Z" itemprop="datePublished">2016-05-13</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/05/11/3D_css3/">css3 to realize 3D</a>
+      <a class="article-title" href="/blog/2016/05/13/2D_canvas/">canvas to realize 2D</a>
     </h1>
   
 
@@ -90,18 +90,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>long long ago !!!<br>Today let me have a summary.<br><strong>transform</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span></span><br><span class="line">ul &#123;</span><br><span class="line">        <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">        <span class="selector-tag">list-style</span>: <span class="selector-tag">none</span>;</span><br><span class="line">        <span class="selector-tag">margin-left</span>: 500<span class="selector-tag">px</span>;</span><br><span class="line">        <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-35deg</span>) <span class="selector-tag">skew</span>(20<span class="selector-tag">deg</span>, 5<span class="selector-tag">deg</span>);</span><br><span class="line">        <span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-35deg</span>) <span class="selector-tag">skew</span>(20<span class="selector-tag">deg</span>, 5<span class="selector-tag">deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>transform变换可以变换三个属性rotate(20deg),skew(20deg),scale(2.0),translate(10px,-10px)分别表示旋转、倾斜、缩放、平移。格式上面的如例子。尝试不同的数字，变换出不同的效果！<br><strong>transition</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span></span><br><span class="line">a&#123;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">  <span class="selector-tag">background</span>: <span class="selector-id">#000</span>;</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#575757</span>;</span><br><span class="line">  <span class="selector-tag">text-decoration</span>: <span class="selector-tag">none</span>;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.25s</span> <span class="selector-tag">linear</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.25s</span> <span class="selector-tag">linear</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ff6e42</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fffcfb</span>;</span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(0.9em, -0.9em);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(0.9em, -0.9em);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>transition过渡指出需要过渡的变换属性、过渡完成所需的时间、速度效果的速度曲线（linear、ease、ease-in、ease-out、ease-in-out、cubic-bezier(n,n,n,n)）、延迟多少时间开始<br><strong>::before ::after伪元素</strong><br>当然还有一些其他伪元素如–:first-line,:first-letter,::selection.和伪类要区分，伪类是设置鼠标移动上去、聚焦上去等的样式（:link,:hover,:active,:visited,:lang,:first-child,:focus,），而伪元素是添加“虚伪的元素”<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@charset "utf-8"</span><br><span class="line">a:before&#123;</span><br><span class="line">  content: '';</span><br><span class="line">  position: absolute;</span><br><span class="line">  width: .5em;</span><br><span class="line">  height: 2.5em;</span><br><span class="line">  background: #121212;</span><br><span class="line">  top: .25em;</span><br><span class="line">  left: -.5em;</span><br><span class="line">  -webkit-transform: skewY(-45deg);</span><br><span class="line">  transform: skewY(-45deg);</span><br><span class="line">  -webkit-transition: all .25s linear;</span><br><span class="line">  transition: all .25s linear;</span><br><span class="line">&#125;</span><br><span class="line">a:hover:before &#123;</span><br><span class="line">  background: #b65234;</span><br><span class="line">  width: 1em;</span><br><span class="line">  top: .5em;</span><br><span class="line">  left: -1em;</span><br><span class="line">  -webkit-transition: all .25s linear;</span><br><span class="line">  transition: all .25s linear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>HOVER上去，伪元素的变化完成时间在:hover:before里面定义transition.伪元素恢复到原状态所需时间在:before里面定义transition。总括，transition定义的是它里面的动画完成所需时间。参考别人的demo自己码了一个<a href="">DEMO</a></p>
+        <h1 id="canvas-can-render-3D-but-this-article-is-about-2d-context"><a href="#canvas-can-render-3D-but-this-article-is-about-2d-context" class="headerlink" title="canvas can render 3D,but this article is about 2d context"></a>canvas can render 3D,but this article is about 2d context</h1><ul>
+<li>get element:<strong>var canvasEL=document.getElementById(“canvas”);</strong></li>
+<li>get context:<strong>var ctx=canvasEL.getContext(“2d”);</strong> </li>
+<li>set edge style:<strong>ctx.strokeStyle=”#000”</strong></li>
+<li>set inner style:<strong>ctx.fillStyle=”#000”</strong></li>
+<li>line:<strong>ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(1,1);ctx.stroke();</strong></li>
+<li>inner circle:<strong>ctx.beginPath();ctx.arc(0,0,radius,0,2*Math.PI);ctx.fill();</strong></li>
+<li>edge circle:<strong>ctx.beginPath();ctx.arc(0,0,radius,0,2*Math.PI);ctx.stroke();</strong></li>
+<li>inner rectangle:<strong>ctx.fillRect(0,0,width,height);</strong></li>
+<li>inner rectangle:<strong>ctx.strokeRect(0,0,width,height);</strong></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/05/11/3D_css3/" data-id="ciofbwb9400011gbzmai6gs5q" class="article-share-link">Share</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/05/13/2D_canvas/" data-id="ciomtltuy000058bz8udn8y38" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/css3/">css3</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/canvas-stars/">canvas stars</a></li></ul>
 
     </footer>
   </div>
@@ -113,7 +120,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/14/">14</a><a class="extend next" rel="next" href="/blog/page/5/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/15/">15</a><a class="extend next" rel="next" href="/blog/page/5/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -126,7 +133,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS-progress/">JS progress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/canvas-stars/">canvas stars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cool-signIn/">cool signIn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflow/">reflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/use-gulp-example/">use gulp example</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS-progress/">JS progress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/canvas-stars/">canvas stars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cool-signIn/">cool signIn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html5-scrollIntoView/">html5-scrollIntoView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflow/">reflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/use-gulp-example/">use gulp example</a></li></ul>
     </div>
   </div>
 
@@ -136,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/JS-progress/" style="font-size: 10px;">JS progress</a> <a href="/blog/tags/canvas-stars/" style="font-size: 10px;">canvas stars</a> <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/cool-signIn/" style="font-size: 10px;">cool signIn</a> <a href="/blog/tags/css3/" style="font-size: 10px;">css3</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/reflow/" style="font-size: 10px;">reflow</a> <a href="/blog/tags/use-gulp-example/" style="font-size: 10px;">use gulp example</a>
+      <a href="/blog/tags/JS-progress/" style="font-size: 10px;">JS progress</a> <a href="/blog/tags/canvas-stars/" style="font-size: 10px;">canvas stars</a> <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/cool-signIn/" style="font-size: 10px;">cool signIn</a> <a href="/blog/tags/css3/" style="font-size: 10px;">css3</a> <a href="/blog/tags/html5-scrollIntoView/" style="font-size: 10px;">html5-scrollIntoView</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/reflow/" style="font-size: 10px;">reflow</a> <a href="/blog/tags/use-gulp-example/" style="font-size: 10px;">use gulp example</a>
     </div>
   </div>
 
@@ -158,6 +165,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2016/05/25/scrollIntoView/">html5-scrollIntoView</a>
+          </li>
+        
+          <li>
             <a href="/blog/2016/05/19/gulpfile/">gulp using</a>
           </li>
         
@@ -171,10 +182,6 @@
         
           <li>
             <a href="/blog/2016/05/11/3D_css3/">css3 to realize 3D</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/05/06/JSprogression/">JSprogression</a>
           </li>
         
       </ul>
