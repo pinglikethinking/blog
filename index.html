@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://pinglikethinking.github.io"></form>
@@ -91,9 +91,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="忙于考试，无暇更博。学前端都耽搁了这么久了，时间要挤出来，先写一篇总结，一会儿滚去复习，还有四门考试，全背闭卷坑！！！"><a href="#忙于考试，无暇更博。学前端都耽搁了这么久了，时间要挤出来，先写一篇总结，一会儿滚去复习，还有四门考试，全背闭卷坑！！！" class="headerlink" title="忙于考试，无暇更博。学前端都耽搁了这么久了，时间要挤出来，先写一篇总结，一会儿滚去复习，还有四门考试，全背闭卷坑！！！"></a>忙于考试，无暇更博。学前端都耽搁了这么久了，时间要挤出来，先写一篇总结，一会儿滚去复习，还有四门考试，全背闭卷坑！！！</h2><h4 id="Recently-I-have-been-learning-Vue-following-the-official-website-of-Vue-There-are-many-ways-to-add-data-to-dom-with-vue-We-can-set-a-component-new-a-Vue-use-‘-mount’and-so-on-here-u-can-see-demos-This-article-is-about-‘computed-data’-and-‘methods-vue’"><a href="#Recently-I-have-been-learning-Vue-following-the-official-website-of-Vue-There-are-many-ways-to-add-data-to-dom-with-vue-We-can-set-a-component-new-a-Vue-use-‘-mount’and-so-on-here-u-can-see-demos-This-article-is-about-‘computed-data’-and-‘methods-vue’" class="headerlink" title="Recently, I have been learning Vue following the official website of Vue.There are many ways to add data to dom with vue.We can set a component,new a Vue,use ‘$mount’and so on.here u can see demos.This article is about ‘computed data’ and ‘methods vue’"></a>Recently, I have been learning Vue following the official website of Vue.There are many ways to add data to dom with vue.We can set a component,new a Vue,use ‘$mount’and so on.<a href="https://github.com/pinglikethinking/learn-VueJS-Demo" target="_blank" rel="external">here u can see demos</a>.This article is about ‘computed data’ and ‘methods vue’</h4><ul>
-<li>数据的计算属性，可以对data进行计算或者其他操作，然后再展示计算后的数据<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>数据的计算属性，可以对data进行计算或者其他操作，然后再展示计算后的数据</li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">''</span></span><br><span class="line">        &#125;,</span><br><span class="line">    computed:&#123;</span><br><span class="line">        example:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.msg+<span class="string">'='</span>+<span class="number">10</span>*<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    template:<span class="string">'&lt;p&gt;&#123;&#123;example&#125;&#125;&lt;/p&gt;'</span>,</span><br><span class="line">    el:<span class="string">'#example'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    vm.msg=<span class="string">'hi'</span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>vue的方法属性，作用于实例上的方法，比如对按钮的点击操作</li>
@@ -104,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pinglikethinking.github.io/blog/2016/06/09/Vue-computed-methods/" data-id="cip7yitfb0000esbzct5fmsu1" class="article-share-link">Share</a>
+      <a data-url="http://pinglikethinking.github.io/blog/2016/06/09/Vue-computed-methods/" data-id="cip7ynh7400064wbzpan3wl0p" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vue之computed和methods/">vue之computed和methods</a></li></ul>
@@ -130,7 +130,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS-progress/">JS progress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bets/">bets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/canvas-stars/">canvas stars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype/">constructor&prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/constructor-prototype-proto/">constructor&prototype&__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cool-signIn/">cool signIn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html5-scrollIntoView/">html5-scrollIntoView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/inherit/">inherit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/offsetBug/">offsetBug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/parseFloat7-000-1/">parseFloat7.000...1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflow/">reflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/use-gulp-example/">use gulp example</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue之computed和methods/">vue之computed和methods</a></li></ul>
     </div>
@@ -140,7 +140,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/blog/tags/JS-progress/" style="font-size: 10px;">JS progress</a> <a href="/blog/tags/bets/" style="font-size: 10px;">bets</a> <a href="/blog/tags/canvas-stars/" style="font-size: 10px;">canvas stars</a> <a href="/blog/tags/constructor-prototype/" style="font-size: 10px;">constructor&prototype</a> <a href="/blog/tags/constructor-prototype-proto/" style="font-size: 10px;">constructor&prototype&__proto__</a> <a href="/blog/tags/cool-signIn/" style="font-size: 10px;">cool signIn</a> <a href="/blog/tags/css3/" style="font-size: 10px;">css3</a> <a href="/blog/tags/html5-scrollIntoView/" style="font-size: 10px;">html5-scrollIntoView</a> <a href="/blog/tags/inherit/" style="font-size: 10px;">inherit</a> <a href="/blog/tags/interview/" style="font-size: 10px;">interview</a> <a href="/blog/tags/offsetBug/" style="font-size: 10px;">offsetBug</a> <a href="/blog/tags/parseFloat7-000-1/" style="font-size: 10px;">parseFloat7.000...1</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/reflow/" style="font-size: 10px;">reflow</a> <a href="/blog/tags/use-gulp-example/" style="font-size: 10px;">use gulp example</a> <a href="/blog/tags/vue之computed和methods/" style="font-size: 10px;">vue之computed和methods</a>
     </div>
@@ -159,7 +159,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -196,7 +196,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 ping<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
