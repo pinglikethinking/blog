@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,8 +238,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/04/30/parseFloat/" itemprop="url">
-                  parseFloat problem
+                <a class="post-title-link" href="/blog/2016/05/05/reflow/" itemprop="url">
+                  reflow and repaint
                 </a>
               
             
@@ -251,9 +251,9 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-04-30T16:11:15+08:00" content="2016-04-30">
-              2016-04-30
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-05T17:34:18+08:00" content="2016-05-05">
+              2016-05-05
             </time>
           </span>
 
@@ -282,9 +282,10 @@
       
         
           
-            <h1 id="today-I-am-faced-with-a-problem"><a href="#today-I-am-faced-with-a-problem" class="headerlink" title="today I am faced with a problem"></a>today I am faced with a problem</h1><p>Since rejected by aliyun,I have been so that sad that I have been having no energy to do sth.After the whole buffer,I was so happy but what’s waitting for me is rejection.In fact, I had no offers and no reparation before.Now, I have tried so many,but there is no any application.lagou shixiceng balabalabala…<br>However,everything must continue to be done!So I shut up,let’s talk about “parseFloat”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num=<span class="built_in">parseFloat</span>(<span class="number">0.07</span>)*<span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num);<span class="comment">//7.000000000000001</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">//7</span></span><br></pre></td></tr></table></figure></p>
-<p>Owning to this,”Math.round()” is a must to “parseFloat()”.<br>This problem is born from <a href="https://github.com/pinglikethinking/components/blob/master/move.js" target="_blank" rel="external">style change</a></p>
-<h3 id="MY-DREAM-IS-to-be-a-WEB-ARCHITECT"><a href="#MY-DREAM-IS-to-be-a-WEB-ARCHITECT" class="headerlink" title="MY DREAM IS to be a WEB ARCHITECT"></a>MY DREAM IS to be a WEB ARCHITECT</h3>
+            <h1 id="study-reflow-onceagain"><a href="#study-reflow-onceagain" class="headerlink" title="study reflow onceagain"></a>study reflow onceagain</h1><p>Today I met with a problem about dynamic adding pictures with js.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pic"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/&#123;&#123;index&#125;&#125;.jpg"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>I want to add my pictures in “{index}”,so many that I can’t make many “div”s.I think of JS.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1get template</span></span><br><span class="line">    <span class="keyword">var</span> _img=$(<span class="string">"#main"</span>).innerHTML</span><br><span class="line">              .replace(<span class="regexp">/^\s*/</span>,<span class="string">""</span>)</span><br><span class="line">              .replace(<span class="regexp">/\s*$/</span>,<span class="string">""</span>);</span><br><span class="line">    <span class="comment">//2 var</span></span><br><span class="line">    <span class="keyword">var</span> out_img=[];</span><br><span class="line">    <span class="comment">//3add data</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data)&#123;</span><br><span class="line">        <span class="keyword">var</span> html_img=_img</span><br><span class="line">                .replace(<span class="regexp">/&#123;&#123;index&#125;&#125;/g</span>,data[i].img);</span><br><span class="line">        out_img.push(html_img);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4reflow</span></span><br><span class="line">    $(<span class="string">"#main"</span>).innerHTML+=out_img.join(<span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="we-all-know-that-browser-flows-the-“-index-”-in-html-before-meeting-with-JS-So-our-imgs-package-must-have-index-jpg"><a href="#we-all-know-that-browser-flows-the-“-index-”-in-html-before-meeting-with-JS-So-our-imgs-package-must-have-index-jpg" class="headerlink" title="we all know that browser flows the “{index}” in html before meeting with JS.So our imgs package must have {index}.jpg"></a>we all know that browser flows the “{index}” in html before meeting with JS.So our imgs package must have {index}.jpg</h3>
           
         
       
@@ -316,7 +317,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/blog/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/19/">19</a><a class="extend next" rel="next" href="/blog/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/blog/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/blog/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/20/">20</a><a class="extend next" rel="next" href="/blog/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -357,8 +358,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">19</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -367,8 +368,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">17</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -412,7 +413,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

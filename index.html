@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,8 +238,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/06/28/validation/" itemprop="url">
-                  validation
+                <a class="post-title-link" href="/blog/2016/07/01/displayVisibility/" itemprop="url">
+                  css hide elements five ways
                 </a>
               
             
@@ -251,9 +251,9 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T22:03:23+08:00" content="2016-06-28">
-              2016-06-28
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-01T09:47:44+08:00" content="2016-07-01">
+              2016-07-01
             </time>
           </span>
 
@@ -282,23 +282,56 @@
       
         
           
-            <h1 id="How-to-validate-form-by-your-own-js"><a href="#How-to-validate-form-by-your-own-js" class="headerlink" title="How to validate form by your own js"></a>How to validate form by your own js</h1><p><strong>前言</strong><br>“input”如何实时验证其输入值是否合格，这么想：</p>
+            <p>五种方式隐藏元素，其中display最为不同，<strong>display:none不再占据页面空间，position也同，毕竟移出了可是区域，不再影响页面布局</strong><br><strong>opacity</strong></p>
 <ul>
-<li>第一步，点击进去要写点什么</li>
-<li>第二步，算了不写了</li>
-<li>第三步，移出</li>
-<li>第四步，刚移出，hi,提示错误了<br>如何做呢，移出是什么呢，onblur!!!失去焦点。<br>其实除此之外还有：<br>1.onclick<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onclick</span>=<span class="string">"fn(event)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>是否占据页面空间：是，虽然透明度为0依旧占据空间影响页面布局</li>
+<li>是否影响用户交互：是，虽然透明了，但链接按钮依然反应</li>
+<li>是否能被读屏软件读取：能</li>
+<li>是否可以实现动画：可以使用transition: all .25s linear;实现动画</li>
+<li>是否可以js操作DOM：可以</li>
+</ul>
+<p><strong>visibility</strong></p>
+<ul>
+<li>是否占据页面空间：是，用户看不见，但占据页面空间，影响页面布局</li>
+<li>是否影响用户交互：不，不可见也不能被点击</li>
+<li>是否能被读屏软件读取：不能，被隐藏</li>
+<li>是否可以实现动画：可以，只要初始状态和终止状态不同就可以</li>
+<li>是否可以js操作DOM：可以</li>
+</ul>
+<p><strong>display</strong></p>
+<ul>
+<li>特点~是否占据页面空间：否，不影响页面布局</li>
+<li>是否影响用户交互：否</li>
+<li>是否能被读屏软件读取：否</li>
+<li>是否可以实现动画：否，不同状态值立即生效</li>
+<li>是否可以js操作DOM：可以</li>
+</ul>
+<p><strong>position</strong></p>
+<ul>
+<li>是否占据页面空间：移出可是窗口，不影响页面布局</li>
+<li>是否影响用户交互：否</li>
+<li>特点~</li>
 </ul>
 <blockquote>
-<p>keydown、keypress 事件无法获取刚输入的内容，而 keyup 又貌似控制晚了：总是看到字符被输入又再被删除</p>
+<p>假设有一个元素你想要与它交互，但是你又不想让它影响你的网页布局，没有合适的属性可以处理这种情况（opacity 和 visibility 影响布局， display 不影响布局但又无法直接交互——译者注</p>
 </blockquote>
-<p>2.oninput/onpropertychange监听输入框内容的变化<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">oninput</span>=<span class="string">"OnInput (event)"</span> <span class="attr">onpropertychange</span>=<span class="string">"OnPropChanged (event)"</span> <span class="attr">value</span>=<span class="string">"Text field"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>关于js如何控制<br>如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">OnInput</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        alert (<span class="string">"The new content: "</span> + event.target.value);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// Internet Explorer</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">OnPropChanged</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (event.propertyName.toLowerCase () == <span class="string">"value"</span>) &#123;</span><br><span class="line">            alert (<span class="string">"The new content: "</span> + event.srcElement.value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>3.onkeyup事件监听，当达到一定长度时再执行某动作<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"myText"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">'myText'</span>);</span><br><span class="line">    element.onkeyup=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(element.value.length&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(element.value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>4.onkeypress/onkeydown接收回车事件<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onkeypress</span>=<span class="string">"EnterPress(event)"</span> <span class="attr">onkeydown</span>=<span class="string">"EnterPress()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">EnterPress</span>(<span class="params">e</span>)</span>&#123; <span class="comment">//传入 event   </span></span><br><span class="line">    <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;   </span><br><span class="line">    <span class="keyword">if</span>(e.keyCode == <span class="number">13</span>)&#123;   </span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"txtAdd"</span>).focus();   </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;   </span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>重点来了，验证在input失去焦点时怎么做呢？<br>看下面的代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"myele"</span> <span class="attr">onblur</span>=<span class="string">"validate('money',document.getElementById('myele').value)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params">type,value</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> dateRegex=<span class="regexp">/^(\d&#123;1,4&#125;)(-|\/)(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;)$/</span>;</span><br><span class="line">            <span class="keyword">switch</span> (type)&#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'beginTime'</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!dateRegex.test(value))&#123;</span><br><span class="line">                        callback(<span class="string">'日期格式不对'</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'endTime'</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!dateRegex.test(value))&#123;</span><br><span class="line">                        callback(<span class="string">'日期格式不对'</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'money'</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(value&gt;<span class="number">100</span>||value&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                        callback(<span class="string">'钱的金额过大或过小'</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">isNotNull</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(value!==<span class="literal">null</span>&amp;&amp;value!==<span class="literal">undefined</span>&amp;&amp;value!==<span class="string">''</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">errors</span>)</span>&#123;</span><br><span class="line">            alert(errors);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>是否能被读屏软件读取：可以</li>
+<li>是否可以实现动画：可以</li>
+<li>是否可以js操作DOM：可以</li>
+</ul>
+<p><strong>clip-path</strong><br>clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);裁剪出去</p>
+<blockquote>
+<p>clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如果要在你的 clip-path 中使用外部的 SVG 文件，浏览器支持度还要更低。</p>
+</blockquote>
+<ul>
+<li>是否占据页面空间：是</li>
+<li>是否影响用户交互：只要裁剪区不为0，就可以</li>
+<li>是否能被读屏软件读取：能</li>
+<li>是否可以实现动画：可以实现动画</li>
+<li>是否可以js操作DOM：可以</li>
+</ul>
+<h1 id="最后看一下代码"><a href="#最后看一下代码" class="headerlink" title="最后看一下代码"></a>最后看一下代码</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="selector-class">.posit</span>&#123;</span><br><span class="line">            <span class="attribute">position</span>: absolute;</span><br><span class="line">            <span class="attribute">left</span>: -<span class="number">10000px</span>;</span><br><span class="line">            <span class="attribute">top</span>: -<span class="number">100000px</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.clip</span>&#123;</span><br><span class="line">            <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(0px 0px,0px 0px,0px 0px,0px 0px);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"opac"</span> <span class="attr">id</span>=<span class="string">"opac"</span> <span class="attr">style</span>=<span class="string">"opacity:0"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1111<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display:block"</span>&gt;</span>display one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"displ"</span> <span class="attr">id</span>=<span class="string">"displ"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">        display two:</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dischild"</span> <span class="attr">style</span>=<span class="string">"display:block"</span>&gt;</span>child display two<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"visib"</span> <span class="attr">id</span>=<span class="string">"visib"</span> <span class="attr">style</span>=<span class="string">"visibility:hidden"</span>&gt;</span></span><br><span class="line">        visibility:</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"visichild"</span> <span class="attr">style</span>=<span class="string">"visibility:visible"</span>&gt;</span>child visible<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"posit"</span> <span class="attr">id</span>=<span class="string">"posit"</span>&gt;</span>position<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clip"</span> <span class="attr">id</span>=<span class="string">"clip"</span>&gt;</span>clip-path<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>clip-path two<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'visib'</span>).style.visibility=<span class="string">'visible'</span>;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -331,7 +364,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/19/">19</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/20/">20</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -372,8 +405,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">19</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -382,8 +415,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">17</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -427,7 +460,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
