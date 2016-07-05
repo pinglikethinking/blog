@@ -84,7 +84,7 @@
 
 
 
-<meta name="description" content="五种方式隐藏元素，其中display最为不同，display:none不再占据页面空间，position也同，毕竟移出了可是区域，不再影响页面布局opacity
+<meta name="description" content="五种方式隐藏元素，其中display最为不同，display:none不再占据页面空间，position也同，毕竟移出了可视区域，不再影响页面布局opacity
 
 是否占据页面空间：是，虽然透明度为0依旧占据空间影响页面布局
 是否影响用户交互：是，虽然透明了，但链接按钮依然反应
@@ -95,17 +95,17 @@
 <meta property="og:title" content="css hide elements five ways">
 <meta property="og:url" content="http://pinglikethinking.github.io/2016/07/01/displayVisibility/index.html">
 <meta property="og:site_name" content="thinking">
-<meta property="og:description" content="五种方式隐藏元素，其中display最为不同，display:none不再占据页面空间，position也同，毕竟移出了可是区域，不再影响页面布局opacity
+<meta property="og:description" content="五种方式隐藏元素，其中display最为不同，display:none不再占据页面空间，position也同，毕竟移出了可视区域，不再影响页面布局opacity
 
 是否占据页面空间：是，虽然透明度为0依旧占据空间影响页面布局
 是否影响用户交互：是，虽然透明了，但链接按钮依然反应
 是否能被读屏软件读取：能
 是否可以实现动画：可以使用transition: all .25s linear;实现动画
 是">
-<meta property="og:updated_time" content="2016-07-01T03:08:57.777Z">
+<meta property="og:updated_time" content="2016-07-01T03:17:15.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css hide elements five ways">
-<meta name="twitter:description" content="五种方式隐藏元素，其中display最为不同，display:none不再占据页面空间，position也同，毕竟移出了可是区域，不再影响页面布局opacity
+<meta name="twitter:description" content="五种方式隐藏元素，其中display最为不同，display:none不再占据页面空间，position也同，毕竟移出了可视区域，不再影响页面布局opacity
 
 是否占据页面空间：是，虽然透明度为0依旧占据空间影响页面布局
 是否影响用户交互：是，虽然透明了，但链接按钮依然反应
@@ -192,7 +192,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -202,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -265,7 +265,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-07-01T09:47:44+08:00" content="2016-07-01">
               2016-07-01
             </time>
@@ -294,7 +294,7 @@
       
 
       
-        <p>五种方式隐藏元素，其中display最为不同，<strong>display:none不再占据页面空间，position也同，毕竟移出了可是区域，不再影响页面布局</strong><br><strong>opacity</strong></p>
+        <p>五种方式隐藏元素，其中display最为不同，<strong>display:none不再占据页面空间，position也同，毕竟移出了可视区域，不再影响页面布局</strong><br><strong>opacity</strong></p>
 <ul>
 <li>是否占据页面空间：是，虽然透明度为0依旧占据空间影响页面布局</li>
 <li>是否影响用户交互：是，虽然透明了，但链接按钮依然反应</li>
@@ -374,13 +374,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2016/06/28/validation/" rel="next" title="validation">
-                <i class="fa fa-chevron-left"></i> validation
+              <a href="/blog/2016/06/28/onblur/" rel="next" title="onblur">
+                <i class="fa fa-chevron-left"></i> onblur
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/07/05/validate/" rel="prev" title="原生封装验证代码JS">
+                原生封装验证代码JS <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -429,10 +433,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -448,8 +452,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -458,8 +462,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -514,7 +518,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

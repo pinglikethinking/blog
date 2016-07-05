@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,8 +238,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/06/22/front-endbase/" itemprop="url">
-                  frond-end
+                <a class="post-title-link" href="/blog/2016/06/28/onblur/" itemprop="url">
+                  onblur
                 </a>
               
             
@@ -251,9 +251,9 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-22T13:32:05+08:00" content="2016-06-22">
-              2016-06-22
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T22:03:23+08:00" content="2016-06-28">
+              2016-06-28
             </time>
           </span>
 
@@ -282,64 +282,24 @@
       
         
           
-            <h1 id="css页面布局"><a href="#css页面布局" class="headerlink" title="css页面布局"></a>css页面布局</h1><h3 id="传统的布局方式有："><a href="#传统的布局方式有：" class="headerlink" title="传统的布局方式有："></a>传统的布局方式有：</h3><h5 id="编码方面："><a href="#编码方面：" class="headerlink" title="编码方面："></a>编码方面：</h5><p><strong>语义化标签布局</strong></p>
+            <h1 id="How-to-validate-form-by-your-own-js"><a href="#How-to-validate-form-by-your-own-js" class="headerlink" title="How to validate form by your own js"></a>How to validate form by your own js</h1><p><strong>前言</strong><br>“input”如何实时验证其输入值是否合格，这么想：</p>
 <ul>
-<li>div+css布局<br>单栏布局、两栏布局，三栏布局，可以作为下面的main部分</li>
-<li>div+id布局<br>top+main+footer</li>
-<li>html5语义化标签布局<br>header+footer定义section或page的页眉、页脚<br>section定义文章article章节区段<br>article定义完整的独立的内容<br>nav定义导航栏<br>aside定义页面内容之外的内容</li>
-<li>iframe框架布局<br>将多个html页面组合到一个页面中如<iframe src="https://mdn-samples.mozilla.org/snippets/html/iframe-simple-contents.html" width="400" height="300"><br><p>Your browser does not support iframes.</p><br></iframe></li>
-<li>表格table布局</li>
+<li>第一步，点击进去要写点什么</li>
+<li>第二步，算了不写了</li>
+<li>第三步，移出</li>
+<li>第四步，刚移出，hi,提示错误了<br>如何做呢，移出是什么呢，onblur!!!失去焦点。<br>其实除此之外还有：<br>1.onclick<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onclick</span>=<span class="string">"fn(event)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p><strong>视觉交互方面</strong></p>
-<ul>
-<li>瀑布流</li>
-<li>无缝拼接图布局</li>
-<li>全屏布局</li>
-<li>视差类型布局</li>
-<li>感应式布局</li>
-</ul>
-<p><strong>手机端</strong></p>
-<ul>
-<li>竖排列表</li>
-<li>横排方块</li>
-<li>九宫格</li>
-<li>手风琴</li>
-<li>抽屉</li>
-<li>TAB切换式</li>
-</ul>
-<h3 id="为什么会产生Div高度塌陷，是由于什么引起的？"><a href="#为什么会产生Div高度塌陷，是由于什么引起的？" class="headerlink" title="为什么会产生Div高度塌陷，是由于什么引起的？"></a>为什么会产生Div高度塌陷，是由于什么引起的？</h3><p>由于内部元素脱离文档流引起的</p>
-<ul>
-<li>float:left/right;</li>
-<li>position:fixed;</li>
-<li>position:absolute;</li>
-</ul>
-<h3 id="绝对定位（position-absolute）的参照物是？"><a href="#绝对定位（position-absolute）的参照物是？" class="headerlink" title="绝对定位（position:absolute）的参照物是？"></a>绝对定位（position:absolute）的参照物是？</h3><p><strong>1.包含块</strong><br>距离最近的，且设置了position:relative/fixed/absolute;只要不为static<br><strong>2.默认包含块</strong><br>在第一种情况不存在时，initial containing block即根元素html</p>
-<h3 id="常见的垂直水平居中，有哪些处理方法"><a href="#常见的垂直水平居中，有哪些处理方法" class="headerlink" title="常见的垂直水平居中，有哪些处理方法"></a>常见的垂直水平居中，有哪些处理方法</h3><p><strong>垂直居中</strong></p>
-<ol>
-<li>js计算可视区域高度，H=document.documentElement.clientHeight/document.body.clientHeight;<br>css设置top:(H-divHeight)/2</li>
-<li>css设置垂直水平居中：<pre><code>top: 50%;
-left: 50%;
-transform: translateX(-50%) translateY(-50%);
-</code></pre></li>
-<li>单行文本垂直居中：line-height设置一个值</li>
-<li>图片垂直居中：vertical-align:middle;</li>
-<li>table法垂直居中：display:table-cell;vertical-align:middle;</li>
-<li>css法：  position: absolute;<pre><code>top: 0;
-bottom: 0;
-height: 50%;
-margin: auto;
-</code></pre><strong>水平居中</strong><br>要居中元素的父元素css设置：text-align:center;</li>
-</ol>
-<h1 id="HTML5-CSS3"><a href="#HTML5-CSS3" class="headerlink" title="HTML5 CSS3"></a>HTML5 CSS3</h1><h3 id="HTML5有哪些新属性"><a href="#HTML5有哪些新属性" class="headerlink" title="HTML5有哪些新属性"></a>HTML5有哪些新属性</h3><p>article,aside,audio,<br>bdi:</p>
-<p></p><p dir="rtl">This arabic word <bdi>ARABIC_PLACEHOLDER</bdi> is automatically displayed right-to-left.</p><br>canvas,datalist,details,dialog,<br>footer,header,main,nav<br>mark,menu,menuitem,meter,output<br>progress,picture,video,section,source,summary,template<br>time,track,ruby<br>rp,rt,rtc,wbr<p></p>
-<h3 id="CSS3常见的动画属性有哪些？"><a href="#CSS3常见的动画属性有哪些？" class="headerlink" title="CSS3常见的动画属性有哪些？"></a>CSS3常见的动画属性有哪些？</h3><p><strong>transition</strong><br>transition-property:none/all<br>transition-duration:变换延续的时间<br>transition-timing-function:延续时间段内，变换的速率<br>transition-delay:变换延迟时间<br><strong>transform</strong><br>transform:rotate(50deg)正向旋转<br>        scale(2,3)横向缩放2倍，纵向缩放3倍<br>        skew(30deg,50deg)相对X轴倾斜30度，Y轴倾斜50度<br>        translate(30px,50px)沿X轴平移30PX，Y轴平移50PX<br><strong>animation</strong><br>定义<br>@-webkit-keyframes move_eye {from{margin-left:-20%;}to{margin-left:100%; }}<br>@-moz-keyframes move_eye { from { margin-left:-20%; } to {margin-left:100%;}  }<br>@-o-keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }<br>@keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }<br>应用到某个元素的CSS中{<br>    -webkit-animation: 4s linear 0s infinite alternate move_eye;<br>     -moz-animation: 4s linear 0s infinite alternate move_eye;<br>       -o-animation: 4s linear 0s infinite alternate move_eye;<br>          animation: 4s linear 0s infinite alternate move_eye;<br>}</p>
-<h3 id="相对于js，css3动画属性有什么优缺点？"><a href="#相对于js，css3动画属性有什么优缺点？" class="headerlink" title="相对于js，css3动画属性有什么优缺点？"></a>相对于js，css3动画属性有什么优缺点？</h3><ul>
-<li>性能方面<br>能用css3的animation的不用js的requestAnimationFrame(不断调用JS，消耗内存，触发GC垃圾回收，GC时间超出frame budget，动画会卡顿),</li>
-<li>CSS3支持不完全，有些功能不太理想<br>比如瀑布流用css实现column-width:202px;每列距离在浏览器窗口变化时会不同</li>
-</ul>
-<h3 id="什么是跨设备响应式？如何处理？"><a href="#什么是跨设备响应式？如何处理？" class="headerlink" title="什么是跨设备响应式？如何处理？"></a>什么是跨设备响应式？如何处理？</h3><p>媒体查询<br>@media (max-width: 1024px)<br>.zu-top {<br>    position: static;<br>}<br>开发快仅用于信息展示，否则PC和手机分开开发，冗余代码多</p>
-<h1 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h1><h3 id="常见IE浏览器都有哪些兼容性问题，或IE下css的bug"><a href="#常见IE浏览器都有哪些兼容性问题，或IE下css的bug" class="headerlink" title="常见IE浏览器都有哪些兼容性问题，或IE下css的bug?"></a>常见IE浏览器都有哪些兼容性问题，或IE下css的bug?</h3><h3 id="写出IE，FF-CHROM的私有前缀"><a href="#写出IE，FF-CHROM的私有前缀" class="headerlink" title="写出IE，FF,CHROM的私有前缀"></a>写出IE，FF,CHROM的私有前缀</h3><p>IE:-ms-<br>FF:-moz-<br>CHROME:-webkit-<br>OPERA:-o-</p>
-<h3 id="EJS和JADE有什么区别，各自优缺点"><a href="#EJS和JADE有什么区别，各自优缺点" class="headerlink" title="EJS和JADE有什么区别，各自优缺点"></a>EJS和JADE有什么区别，各自优缺点</h3><h3 id="如何写网站的基础样式供别人使用？如果别人需要修改基础尺寸如何做？"><a href="#如何写网站的基础样式供别人使用？如果别人需要修改基础尺寸如何做？" class="headerlink" title="如何写网站的基础样式供别人使用？如果别人需要修改基础尺寸如何做？"></a>如何写网站的基础样式供别人使用？如果别人需要修改基础尺寸如何做？</h3>
+<blockquote>
+<p>keydown、keypress 事件无法获取刚输入的内容，而 keyup 又貌似控制晚了：总是看到字符被输入又再被删除</p>
+</blockquote>
+<p>2.oninput/onpropertychange监听输入框内容的变化<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">oninput</span>=<span class="string">"OnInput (event)"</span> <span class="attr">onpropertychange</span>=<span class="string">"OnPropChanged (event)"</span> <span class="attr">value</span>=<span class="string">"Text field"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>关于js如何控制<br>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">OnInput</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        alert (<span class="string">"The new content: "</span> + event.target.value);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// Internet Explorer</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">OnPropChanged</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (event.propertyName.toLowerCase () == <span class="string">"value"</span>) &#123;</span><br><span class="line">            alert (<span class="string">"The new content: "</span> + event.srcElement.value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>3.onkeyup事件监听，当达到一定长度时再执行某动作<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"myText"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">'myText'</span>);</span><br><span class="line">    element.onkeyup=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(element.value.length&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(element.value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>4.onkeypress/onkeydown接收回车事件<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onkeypress</span>=<span class="string">"EnterPress(event)"</span> <span class="attr">onkeydown</span>=<span class="string">"EnterPress()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">EnterPress</span>(<span class="params">e</span>)</span>&#123; <span class="comment">//传入 event   </span></span><br><span class="line">    <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;   </span><br><span class="line">    <span class="keyword">if</span>(e.keyCode == <span class="number">13</span>)&#123;   </span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"txtAdd"</span>).focus();   </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;   </span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>重点来了，验证在input失去焦点时怎么做呢？<br>看下面的代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"myele"</span> <span class="attr">onblur</span>=<span class="string">"validate('money',document.getElementById('myele').value)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params">type,value</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> dateRegex=<span class="regexp">/^(\d&#123;1,4&#125;)(-|\/)(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;)$/</span>;</span><br><span class="line">            <span class="keyword">switch</span> (type)&#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'beginTime'</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!dateRegex.test(value))&#123;</span><br><span class="line">                        callback(<span class="string">'日期格式不对'</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'endTime'</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!dateRegex.test(value))&#123;</span><br><span class="line">                        callback(<span class="string">'日期格式不对'</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'money'</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(value&gt;<span class="number">100</span>||value&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                        callback(<span class="string">'钱的金额过大或过小'</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!isNotNull(value))&#123;</span><br><span class="line">                        callback(<span class="string">'不能为空'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">isNotNull</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(value!==<span class="literal">null</span>&amp;&amp;value!==<span class="literal">undefined</span>&amp;&amp;value!==<span class="string">''</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">errors</span>)</span>&#123;</span><br><span class="line">            alert(errors);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
           
         
       
@@ -371,7 +331,7 @@ margin: auto;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/20/">20</a><a class="extend next" rel="next" href="/blog/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/21/">21</a><a class="extend next" rel="next" href="/blog/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -412,8 +372,8 @@ margin: auto;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -422,8 +382,8 @@ margin: auto;
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -467,7 +427,7 @@ margin: auto;
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

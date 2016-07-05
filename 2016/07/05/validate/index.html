@@ -1,0 +1,572 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="原生封装验证代码JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="封装，原生，验证信息的JS前言： 工作业务采用knockoutjs的data-bind绑定数据，用别人的框架验证提交时就出问题了，好嘛，我来解决这个问题。一般类似别人框架冲突遇到的问题，最好还是自己原生解决需求。
+
+方案一参考JQ的对象，我采用switch语句进行匹配验证，JS代码如下：12345678910111213141516171819202122232425262728293031323">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生封装验证代码JS">
+<meta property="og:url" content="http://pinglikethinking.github.io/2016/07/05/validate/index.html">
+<meta property="og:site_name" content="thinking">
+<meta property="og:description" content="封装，原生，验证信息的JS前言： 工作业务采用knockoutjs的data-bind绑定数据，用别人的框架验证提交时就出问题了，好嘛，我来解决这个问题。一般类似别人框架冲突遇到的问题，最好还是自己原生解决需求。
+
+方案一参考JQ的对象，我采用switch语句进行匹配验证，JS代码如下：12345678910111213141516171819202122232425262728293031323">
+<meta property="og:updated_time" content="2016-07-05T06:32:57.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生封装验证代码JS">
+<meta name="twitter:description" content="封装，原生，验证信息的JS前言： 工作业务采用knockoutjs的data-bind绑定数据，用别人的框架验证提交时就出问题了，好嘛，我来解决这个问题。一般类似别人框架冲突遇到的问题，最好还是自己原生解决需求。
+
+方案一参考JQ的对象，我采用switch语句进行匹配验证，JS代码如下：12345678910111213141516171819202122232425262728293031323">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://pinglikethinking.github.io/2016/07/05/validate/"/>
+
+  <title> 原生封装验证代码JS | thinking </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">thinking</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                原生封装验证代码JS
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T13:45:25+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="封装，原生，验证信息的JS"><a href="#封装，原生，验证信息的JS" class="headerlink" title="封装，原生，验证信息的JS"></a>封装，原生，验证信息的JS</h1><p><strong>前言：</strong> 工作业务采用knockoutjs的data-bind绑定数据，用别人的框架验证提交时就出问题了，好嘛，我来解决这个问题。一般类似别人框架冲突遇到的问题，最好还是自己原生解决需求。</p>
+<hr>
+<h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>参考JQ的对象，我采用switch语句进行匹配验证，JS代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params">type,inputWrap,myId</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value=<span class="built_in">document</span>.getElementById(myId).value,</span><br><span class="line">        dateRegex = <span class="regexp">/^(\d&#123;1,4&#125;)(-|\/)(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;)$/</span>;</span><br><span class="line">    <span class="keyword">switch</span> (type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'beginTime'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span> (!isNotNull(value)) &#123;</span><br><span class="line">                callback(inputWrap,<span class="string">'不能为空'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!dateRegex.test(value)) &#123;</span><br><span class="line">                callback(inputWrap,<span class="string">'日期格式不对'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'endTime'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span> (!isNotNull(value)) &#123;</span><br><span class="line">                callback(inputWrap,<span class="string">'不能为空'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!dateRegex.test(value)) &#123;</span><br><span class="line">                callback(inputWrap,<span class="string">'日期格式不对'</span>);</span><br><span class="line">            &#125;           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'money'</span>: &#123;</span><br><span class="line">            <span class="keyword">if</span> (!isNotNull(value)) &#123;</span><br><span class="line">                callback(inputWrap,<span class="string">'不能为空'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value &gt; <span class="number">100</span> || value &lt; <span class="number">0.5</span>) &#123;</span><br><span class="line">                callback(inputWrap,<span class="string">'钱的金额过大或过小'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNotNull</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(value!==<span class="literal">null</span>&amp;&amp;value!==<span class="literal">undefined</span>&amp;&amp;value!==<span class="string">''</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">referId,errors</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> lab=<span class="built_in">document</span>.createElement(<span class="string">'label'</span>),</span><br><span class="line">        referNode=<span class="built_in">document</span>.getElementById(referId);</span><br><span class="line">    lab.innerText=errors;</span><br><span class="line">    lab.style.color=<span class="string">'red'</span>;</span><br><span class="line">    referNode.appendChild(lab);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>后期根据需求增加验证信息就可以了，那么前端是如何绑定的呢？<br>HTML如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"_inputWrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"pre"</span> <span class="attr">onblur</span>=<span class="string">'validate("money","_inputWrap","pre")'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"validate.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>ok,可以实时验证了。另外由于验证提示信息是由JS操作DOM创建的，页面就会reflow一遍，影响性能，最好先在HTML页面内创建好节点，只要hidden就好了，反正放在后面只占据一点空间（这就涉及到visibility:hidden/visible;display:none/block;一个隐藏后占据空间，一个不会，但都存在于DOM，节点并未消失，想了解更多参考我的博客displayVisiblility）.不过调用简单，没那么多配合，如果HTML JS CSS分开工作的话<br>所以又实现了一种方案</p>
+<h5 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h5><p>参加另外一个项目的时候做的，因为整个登录注册页面我自己做包括样式内容等，所以这样写的提高性能，不用考虑沟通成本的问题哈哈<br>JS如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">验证格式</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _value=<span class="built_in">document</span>.getElementById(type).value,</span><br><span class="line">        emailRegex = <span class="regexp">/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`&#123;|&#125;~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]&#123;0,61&#125;[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]&#123;0,61&#125;[a-zA-Z0-9])?)*$/</span>;</span><br><span class="line">    <span class="keyword">switch</span> (type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'phone'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span>(!isNotNull(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'电话号码不能为空'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length!==<span class="number">11</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'号码格式不正确'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'email'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span>(!isNotNull(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'email不能为空'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!emailRegex.test(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'邮件格式不正确'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'phone_username'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span>(!isNotNull(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'用户名不能为空'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length&gt;<span class="number">10</span>||_value.length&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'用户名不能多于10位'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'email_username'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span>(!isNotNull(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'用户名不能为空'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length&gt;<span class="number">10</span>||_value.length&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'用户名不能多于10位'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'phone_pwd'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span>(!isNotNull(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'不能为空'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length&lt;<span class="number">6</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'密码过于简单'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length&gt;<span class="number">8</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'密码不能多于8位'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'email_pwd'</span>:&#123;</span><br><span class="line">            <span class="keyword">if</span>(!isNotNull(_value))&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'不能为空'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length&lt;<span class="number">6</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'密码过于简单'</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(_value.length&gt;<span class="number">8</span>)&#123;</span><br><span class="line">                callback(type+<span class="string">'Erro'</span>,<span class="string">'密码不能多于8位'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">验证是否为空</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNotNull</span>(<span class="params">_value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(_value!==<span class="literal">null</span>&amp;&amp;_value!==<span class="literal">undefined</span>&amp;&amp;_value!==<span class="string">''</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">显示错误</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">_info,msg</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> html=<span class="built_in">document</span>.getElementById(_info);</span><br><span class="line">    html.innerHTML=msg;</span><br><span class="line">    html.className=<span class="string">'erro isvisible'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">隐藏错误</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isnotvisibe</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(type);</span><br><span class="line">    element.className=<span class="string">'erro'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>HTML页面是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"phone inputWrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/username.png"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"phone"</span> <span class="attr">placeholder</span>=<span class="string">"手机号"</span> <span class="attr">id</span>=<span class="string">"phone"</span> <span class="attr">onblur</span>=<span class="string">'validate("phone")'</span> <span class="attr">onclick</span>=<span class="string">'isnotvisibe("phoneErro")'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"erro"</span> <span class="attr">id</span>=<span class="string">"phoneErro"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">  <span class="selector-class">.inputWrapper</span> <span class="selector-class">.erro</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inputWrapper</span> <span class="selector-class">.isvisible</span>&#123;</span><br><span class="line">    <span class="attribute">visibility</span>: visible;</span><br><span class="line">&#125;  </span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/原生封装验证代码JS/" rel="tag">#原生封装验证代码JS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/07/01/displayVisibility/" rel="next" title="css hide elements five ways">
+                <i class="fa fa-chevron-left"></i> css hide elements five ways
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/me.png"
+               alt="Ipo" />
+          <p class="site-author-name" itemprop="name">Ipo</p>
+          <p class="site-description motion-element" itemprop="description">Do one thing to the best</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#封装，原生，验证信息的JS"><span class="nav-number">1.</span> <span class="nav-text">封装，原生，验证信息的JS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案一"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">方案一</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方案二"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">方案二</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ipo</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

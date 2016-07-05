@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,7 +238,7 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/04/14/constructor&prototype&__proto__/" itemprop="url">
+                <a class="post-title-link" href="/blog/2016/04/15/prototype&prototype/" itemprop="url">
                   对象字面量重写整个原型对象
                 </a>
               
@@ -251,9 +251,9 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-14T19:20:00+08:00" content="2016-04-14">
-              2016-04-14
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-04-15T15:26:28+08:00" content="2016-04-15">
+              2016-04-15
             </time>
           </span>
 
@@ -302,6 +302,8 @@
 <hr>
 <p><strong>constructor</strong><br><strong>默认创建的原型对象中才constructor:person</strong><br><em>即person.prototype.age=20;这种叫默认创建的</em><br><strong>使用对象字面量重写原型对象以及继承情况下新建的原型对象</strong>默认情况下<br><strong>constructor:function Object(){[native code]}</strong><br>除非新建原型对象时，定义了constructor:person</p>
 <hr>
+<p><strong><strong>proto</strong></strong><br>任何一个对象在创建之后必有的一个私有属性<strong>proto</strong>，也是原型链的基础。<br>function person()={}<br>var person1=new person();<br>此时person1.<strong>proto</strong>===person.prototype<br>person.<strong>proto</strong>===Object.prototype<br><strong>可以将prototype当作指针，constructor&amp;prototype构成了双向链表，这两个属性值一般情况下要定义</strong><br>虽然未定义实例的prototype值，但自带的<strong>proto</strong>指向了原型对象，继承了原型对象。以上问题也都得到解答了。</p>
+<hr>
 <h1 id="以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西"><a href="#以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西" class="headerlink" title="以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西"></a>以上均为实践得来，如果有变，估计是浏览器升级了，或者是es有变动。JS是个多变难以解析的奇怪的东西</h1>
           
         
@@ -334,7 +336,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/blog/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/20/">20</a><a class="extend next" rel="next" href="/blog/page/17/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/blog/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/blog/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/21/">21</a><a class="extend next" rel="next" href="/blog/page/17/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -375,8 +377,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -385,8 +387,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -430,7 +432,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
