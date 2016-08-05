@@ -238,8 +238,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/05/11/3D_css3/" itemprop="url">
-                  css3 to realize 3D
+                <a class="post-title-link" href="/blog/2016/05/13/2D_canvas/" itemprop="url">
+                  canvas to realize 2D
                 </a>
               
             
@@ -252,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T00:00:00+08:00" content="2016-05-11">
-              2016-05-11
+            <time itemprop="dateCreated" datetime="2016-05-13T00:00:00+08:00" content="2016-05-13">
+              2016-05-13
             </time>
           </span>
 
@@ -282,10 +282,17 @@
       
         
           
-            <p>long long ago !!!<br>Today let me have a summary.<br><strong>transform</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span></span><br><span class="line">ul &#123;</span><br><span class="line">        <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">        <span class="selector-tag">list-style</span>: <span class="selector-tag">none</span>;</span><br><span class="line">        <span class="selector-tag">margin-left</span>: 500<span class="selector-tag">px</span>;</span><br><span class="line">        <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-35deg</span>) <span class="selector-tag">skew</span>(20<span class="selector-tag">deg</span>, 5<span class="selector-tag">deg</span>);</span><br><span class="line">        <span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-35deg</span>) <span class="selector-tag">skew</span>(20<span class="selector-tag">deg</span>, 5<span class="selector-tag">deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>transform变换可以变换三个属性rotate(20deg),skew(20deg),scale(2.0),translate(10px,-10px)分别表示旋转、倾斜、缩放、平移。格式上面的如例子。尝试不同的数字，变换出不同的效果！<br><strong>transition</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span></span><br><span class="line">a&#123;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">  <span class="selector-tag">background</span>: <span class="selector-id">#000</span>;</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#575757</span>;</span><br><span class="line">  <span class="selector-tag">text-decoration</span>: <span class="selector-tag">none</span>;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.25s</span> <span class="selector-tag">linear</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.25s</span> <span class="selector-tag">linear</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ff6e42</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fffcfb</span>;</span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(0.9em, -0.9em);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(0.9em, -0.9em);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>transition过渡指出需要过渡的变换属性、过渡完成所需的时间、速度效果的速度曲线（linear、ease、ease-in、ease-out、ease-in-out、cubic-bezier(n,n,n,n)）、延迟多少时间开始<br><strong>::before ::after伪元素</strong><br>当然还有一些其他伪元素如–:first-line,:first-letter,::selection.和伪类要区分，伪类是设置鼠标移动上去、聚焦上去等的样式（:link,:hover,:active,:visited,:lang,:first-child,:focus,），而伪元素是添加“虚伪的元素”<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@charset "utf-8"</span><br><span class="line">a:before&#123;</span><br><span class="line">  content: '';</span><br><span class="line">  position: absolute;</span><br><span class="line">  width: .5em;</span><br><span class="line">  height: 2.5em;</span><br><span class="line">  background: #121212;</span><br><span class="line">  top: .25em;</span><br><span class="line">  left: -.5em;</span><br><span class="line">  -webkit-transform: skewY(-45deg);</span><br><span class="line">  transform: skewY(-45deg);</span><br><span class="line">  -webkit-transition: all .25s linear;</span><br><span class="line">  transition: all .25s linear;</span><br><span class="line">&#125;</span><br><span class="line">a:hover:before &#123;</span><br><span class="line">  background: #b65234;</span><br><span class="line">  width: 1em;</span><br><span class="line">  top: .5em;</span><br><span class="line">  left: -1em;</span><br><span class="line">  -webkit-transition: all .25s linear;</span><br><span class="line">  transition: all .25s linear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>HOVER上去，伪元素的变化完成时间在:hover:before里面定义transition.伪元素恢复到原状态所需时间在:before里面定义transition。总括，transition定义的是它里面的动画完成所需时间。参考别人的demo自己码了一个<a href="">DEMO</a></p>
+            <h1 id="canvas-can-render-3D-but-this-article-is-about-2d-context"><a href="#canvas-can-render-3D-but-this-article-is-about-2d-context" class="headerlink" title="canvas can render 3D,but this article is about 2d context"></a>canvas can render 3D,but this article is about 2d context</h1><ul>
+<li>get element:<strong>var canvasEL=document.getElementById(“canvas”);</strong></li>
+<li>get context:<strong>var ctx=canvasEL.getContext(“2d”);</strong> </li>
+<li>set edge style:<strong>ctx.strokeStyle=”#000”</strong></li>
+<li>set inner style:<strong>ctx.fillStyle=”#000”</strong></li>
+<li>line:<strong>ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(1,1);ctx.stroke();</strong></li>
+<li>inner circle:<strong>ctx.beginPath();ctx.arc(0,0,radius,0,2*Math.PI);ctx.fill();</strong></li>
+<li>edge circle:<strong>ctx.beginPath();ctx.arc(0,0,radius,0,2*Math.PI);ctx.stroke();</strong></li>
+<li>inner rectangle:<strong>ctx.fillRect(0,0,width,height);</strong></li>
+<li>inner rectangle:<strong>ctx.strokeRect(0,0,width,height);</strong></li>
+</ul>
 
           
         
@@ -318,7 +325,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/blog/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/21/">21</a><a class="extend next" rel="next" href="/blog/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/blog/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/blog/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/22/">22</a><a class="extend next" rel="next" href="/blog/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -359,7 +366,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
@@ -369,7 +376,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">Tags</span>
               </a>
             </div>
